@@ -18,7 +18,7 @@ namespace AutenticacionPersonalizada.Seguridad
         public string apellidos { get; set; }
         public string imagen { get; set; }
         public String Rol { get; set; }
-
+         public override String Email { get; set; }
       public UsuarioMembership(Usuario us)
       {
           var clave = ConfigurationManager.AppSettings["ClaveCifrado"];
@@ -27,8 +27,9 @@ namespace AutenticacionPersonalizada.Seguridad
           apellidos = us.apellidos;
           imagen = us.imagen;
           Rol = us.Rol.nombre;
-          login = SeguridadUtilidades.DesCifrar(
-              Convert.FromBase64String(us.login), clave);
+          Email =SeguridadUtilidades.
+                DesCifrar(Convert.FromBase64String(us.email),clave);
+          login = us.login;
       }
 
     }

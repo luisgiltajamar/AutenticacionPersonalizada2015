@@ -26,6 +26,8 @@ namespace AutenticacionPersonalizada.Utilidades
 
        public static byte[] GetKey(String txt)
        {
+            
+
            return new PasswordDeriveBytes(txt,null).GetBytes(32);
        }
        public static string Cifrar(String contenido, String clave)

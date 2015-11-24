@@ -31,6 +31,7 @@ namespace AutenticacionPersonalizada.Seguridad
         public string imagen { get; set; }
         public String Rol { get; set; }
         public IIdentity Identity { get; set; }
+       public String Email { get; set; }
 
        public IdentityPersonalizado(IIdentity identity)
        {
@@ -42,7 +43,7 @@ namespace AutenticacionPersonalizada.Seguridad
            id = us.id;
            imagen = us.imagen;
            Rol = us.Rol;
-
+           Email = us.Email;
 
        }
     }

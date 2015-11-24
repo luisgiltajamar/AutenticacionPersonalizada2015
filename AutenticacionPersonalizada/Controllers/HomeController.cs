@@ -8,20 +8,13 @@ using AutenticacionPersonalizada.Utilidades;
 
 namespace AutenticacionPersonalizada.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: Home
         public ActionResult Index()
         {
-            var clave = ConfigurationManager.AppSettings["ClaveCifrado"];
-
-            var cifrado = SeguridadUtilidades.Cifrar(
-                            "Hola don pepito",clave );
-
-            var data = Convert.FromBase64String(cifrado);
-
-            var descifrado = SeguridadUtilidades.DesCifrar(
-                            data, clave);
+          
             return View();
         }
     }
